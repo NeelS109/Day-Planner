@@ -31,24 +31,35 @@
     <div class="container">
       <!-- Timeblocks go here -->
       <!-- 9AM blocks-->
-      <div class="input-group input-group-lg" data-hour="9">
+      <div class="input-group input-group-lg">
         <div class="input-group-prepend">
             <!-- Added time-block class -->
-            <span class="input-group-text time-block block1"></span>
+            <span class="input-group-text time-block nineAM"></span>
         </div>
-        <input type="text" class="form-control form9" aria-label="Large">
+        <input type="text" class="form-control" aria-label="Large">
         <!-- <input class="btn saveBtn" type="submit" value="Save"> -->
         <button class="btn saveBtn"><i class="far fa-save"></i></button>
-        <!-- Use Favacon for save icon-->
+      </div>
       <!-- 10AM blocks  -->
-        <div class="input-group input-group-lg">
-  
-          <div class="input-group-prepend">
-  
-            <span class="input-group-text"></span>
-
-          </div>
- 
-          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-
+      <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+            <span class="input-group-text time-block tenAM"></span>
         </div>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        <button class="btn saveBtn"><i class="far fa-save"></i></button>
+      </div>
+      
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+      
+      
+      
+  </body>
+
+</html>        
