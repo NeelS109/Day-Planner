@@ -7,7 +7,7 @@ currentTime = currentTime.startOf("hour");
 // Calculates the start of day + 9hr to return the start time (9am)
 var dayStart = moment().startOf('day').add(9, "hours");
 
-// var time1 = dayStart;
+// var timeNine = dayStart;
 var timeNine = dayStart.add(0, "h");
 // Populates time into html
 timeNine = timeNine.format('hh:mm A');
@@ -22,6 +22,11 @@ var timeEleven = dayStart.add(1, "h");
 // Populates time into html
 timeEleven = timeEleven.format("hh:mm A")
 $(".elevenAM").text(timeEleven);
+// var timeTwelve = dayStart
+var timeTwelve = dayStart.add(1, "h");
+// Populates time into html
+timeTwelve = timeTwelve.format("hh:mm A")
+$(".twelvePM").text(timeTwelve);
 
 
 
@@ -68,6 +73,20 @@ function plannertTimes() {
     else if (currentTime.isSame(timeEleven)) {
         $(".control11").addClass("present");
     };
+    // Add timeTweleve 12pm
+    timeTwelve = moment().startOf('day').add(12, "hours");
+    // Rounds down to start of the current hour
+    currentTime = currentTime.startOf("hour");
+    // Add timeTwelve if/else to adjust if time is past,future, or present. 
+    if (currentTime.isAfter(timeTwelve)) {
+        $(".control12").addClass("past");
+    }
+    else if (currentTime.isBefore(timeTwelve)) {
+        $(".control12").addClass("future");
+    }
+    else if (currentTime.isSame(timeTwelve)) {
+        $(".control12").addClass("present");
+    };
 }   
 
 
@@ -83,7 +102,7 @@ function plannertTimes() {
 plannertTimes();
 // Loops to pull time slots from local storage
 var t = [9, 10, 11, 12, 1, 2, 3, 4, 5, 6];
-// Test loop:
+// Loop to cycle through the times
 for (var i = 0; i < t.length; i++) {
     var timeHour = localStorage.getItem(t[i]);
     // form - control
