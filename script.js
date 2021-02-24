@@ -2,30 +2,84 @@ moment(Date)
 $("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
 // Moment Current time 
 var currentTime = moment();
-// Returns current time to the nearest hour - 12:30 becomes 12:00
+// Returns current time but rounded down to the nearest hour
 currentTime = currentTime.startOf("hour");
-// Calculates the start of day + 9 to return the start time (9am)
+// Calculates the start of day + 9hr to return the start time (9am)
 var dayStart = moment().startOf('day').add(9, "hours");
 
-// var time1 = beforeTime;
+// var time1 = dayStart;
 var timeNine = dayStart.add(0, "h");
-// Populates time formula into html
+// Populates time into html
 timeNine = timeNine.format('hh:mm A');
 $(".nineAM").text(timeNine);
 
-function testTime() {
-    // Add time1 9AM
+// var timeTen = dayStart
+var timeTen = dayStart.add(1, "h");
+// Populates time into html
+timeTen = timeTen.format("hh:mm A");
+$(".tenAM").text(timeTen);
+
+
+
+function plannertTimes() {
+    // Add timeNine 9AM
     timeNine = moment().startOf('day').add(9, "hours");
-    // Adjusts current time to the hour
+    // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
-    // Add time1 if/else
+    // Add timeNine if/else to add if past, future, present.
     if (currentTime.isAfter(timeNine)) {
-        $(".form9").addClass("past");
+        $(".control9").addClass("past");
     }
     else if (currentTime.isBefore(timeNine)) {
-        $(".form9").addClass("future");
+        $(".control9").addClass("future");
     }
     else if (currentTime.isSame(timeNine)) {
-        $(".form9").addClass("present");
+        $(".control9").addClass("present");
     };
+        
+    // Add timeTen 10am
+    timeTen = moment().startOf('day').add(10, "hours");
+    // Rounds down to start of the current hour
+    currentTime = currentTime.startOf("hour");
+    // Add timeTen if/else to adjust if past, future, present
+    if (currentTime.isAfter(timeTen)) {
+        $(".control10").addClass("past");
+    }
+    else if (currentTime.isBefore(timeTen)) {
+        $(".control10").addClass("future");
+    }
+    else if (currentTime.isSame(timeTen)) {
+        $(".control10").addClass("present");
+    };
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+plannertTimes();
+// Loops to pull time slots from local storage
+var t = [9, 10, 11, 12, 1, 2, 3, 4, 5, 6];
+// Test loop:
+for (var i = 0; i < t.length; i++) {
+    var timeHour = localStorage.getItem(t[i]);
+    // form - control
+    $(".control" + t[i]).val(timeHour);
+}
+// Event listener for saving to local stroage
+$(".saveBtn").click(function () {
+    event.preventDefault();
+    var formValue = $(this).siblings(".form-control").val();
+    console.log("This worked");
+    var listItem = $(this).parent().data("hour");
+
+    localStorage.setItem(listItem, formValue);
+});
