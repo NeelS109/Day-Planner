@@ -42,6 +42,21 @@ var timeThree = dayStart.add(1, "h");
 // Populates time into html
 timeThree = timeThree.format("hh:mm A")
 $(".threePM").text(timeThree);
+// var timeFour = dayStart
+var timeFour = dayStart.add(1, "h");
+// Populates time into html
+timeFour = timeFour.format("hh:mm A")
+$(".fourPM").text(timeFour);
+// var timeFive = dayStart
+var timeFive = dayStart.add(1, "h");
+// Populates time into html
+timeFive = timeFive.format("hh:mm A")
+$(".fivePM").text(timeFive);
+// var timeSix = dayStart
+var timeSix = dayStart.add(1, "h");
+// Populates time into html
+timeSix = timeSix.format("hh:mm A")
+$(".sixPM").text(timeSix);
 
 
 function plannertTimes() {
@@ -156,6 +171,48 @@ function plannertTimes() {
     }
     else if (currentTime.isSame(timeThree)) {
         $(".control3").addClass("present");
+    };
+    // Add timeFour 4pm
+    timeFour = moment().startOf('day').add(16, "hours");
+    // Rounds down to start of the current hour
+    currentTime = currentTime.startOf("hour");
+    // Add timeFour if/else to adjust if time is past,future, or present. 
+    if (currentTime.isAfter(timeFour)) {
+        $(".control4").addClass("past");
+    }
+    else if (currentTime.isBefore(timeFour)) {
+        $(".control4").addClass("future");
+    }
+    else if (currentTime.isSame(timeFour)) {
+        $(".control4").addClass("present");
+    };
+    // Add timeFive 5pm
+    timeFive = moment().startOf('day').add(17, "hours");
+    // Rounds down to start of the current hour
+    currentTime = currentTime.startOf("hour");
+    // Add timeFive if/else to adjust if time is past,future, or present. 
+    if (currentTime.isAfter(timeFive)) {
+        $(".control5").addClass("past");
+    }
+    else if (currentTime.isBefore(timeFive)) {
+        $(".control5").addClass("future");
+    }
+    else if (currentTime.isSame(timeFive)) {
+        $(".control5").addClass("present");
+    };
+    // Add timeSix 6pm
+    timeSix = moment().startOf('day').add(17, "hours");
+    // Rounds down to start of the current hour
+    currentTime = currentTime.startOf("hour");
+    // Add timeFive if/else to adjust if time is past,future, or present. 
+    if (currentTime.isAfter(timeSix)) {
+        $(".control6").addClass("past");
+    }
+    else if (currentTime.isBefore(timeSix)) {
+        $(".control6").addClass("future");
+    }
+    else if (currentTime.isSame(timeSix)) {
+        $(".control6").addClass("present");
     };
 }   
 
