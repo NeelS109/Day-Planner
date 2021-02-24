@@ -6,3 +6,6 @@ AS AN employee with a busy schedule I WANT to add important events to a daily pl
 Instructions:
 Plan your day out by clicking in the open space of any time slot and add a reminder to plan for. Click the save button and 
 your reminder will stay there until removed and saved again. 
+
+You can view the deployed planner on:
+[Deployed-Day-Planner](https://neels109.github.io/Day-Planner/)
