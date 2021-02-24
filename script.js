@@ -202,19 +202,25 @@ function plannertTimes() {
     };
 }   
 
-
-
 plannertTimes();
 // Loops to pull time slots from local storage
 var t = [9, 10, 11, 12, 1, 2, 3, 4, 5, 6];
-// Loop to cycle through the times
+// Loop to cycle through the time slots
 for (var i = 0; i < t.length; i++) {
     var timeHour = localStorage.getItem(t[i]);
     // form - control
     $(".control" + t[i]).val(timeHour);
 }
 
+// Event listener for saving to local storage
+$(".saveBtn").click(function () {
+    event.preventDefault();
+    var formValue = $(this).siblings(".form-control").val();
+    console.log("Success");
+    var listItem = $(this).parent().data("hour");
 
+    localStorage.setItem(listItem, formValue);
+});
 
 
 
