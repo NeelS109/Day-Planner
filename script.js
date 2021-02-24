@@ -27,7 +27,16 @@ var timeTwelve = dayStart.add(1, "h");
 // Populates time into html
 timeTwelve = timeTwelve.format("hh:mm A")
 $(".twelvePM").text(timeTwelve);
-
+// var timeOne = dayStart
+var timeOne = dayStart.add(1, "h");
+// Populates time into html
+timeOne = timeOne.format("hh:mm A")
+$(".onePM").text(timeOne);
+// var timeTwo = dayStart
+var timeTwo = dayStart.add(1, "h");
+// Populates time into html
+timeTwo = timeTwo.format("hh:mm A")
+$(".twoPM").text(timeTwo);
 
 
 function plannertTimes() {
@@ -86,6 +95,48 @@ function plannertTimes() {
     }
     else if (currentTime.isSame(timeTwelve)) {
         $(".control12").addClass("present");
+    };
+    // Add timeOne 1pm
+    timeOne = moment().startOf('day').add(13, "hours");
+    // Rounds down to start of the current hour
+    currentTime = currentTime.startOf("hour");
+    // Add timeTwelve if/else to adjust if time is past,future, or present. 
+    if (currentTime.isAfter(timeOne)) {
+        $(".control1").addClass("past");
+    }
+    else if (currentTime.isBefore(timeOne)) {
+        $(".control1").addClass("future");
+    }
+    else if (currentTime.isSame(timeOne)) {
+        $(".control1").addClass("present");
+    };
+        // Add timeOne 1pm
+    timeOne = moment().startOf('day').add(13, "hours");
+    // Rounds down to start of the current hour
+    currentTime = currentTime.startOf("hour");
+    // Add timeTwelve if/else to adjust if time is past,future, or present. 
+    if (currentTime.isAfter(timeOne)) {
+        $(".control1").addClass("past");
+    }
+    else if (currentTime.isBefore(timeOne)) {
+        $(".control1").addClass("future");
+    }
+    else if (currentTime.isSame(timeOne)) {
+        $(".control1").addClass("present");
+    };
+    // Add timeTwo 2pm
+    timeTwo = moment().startOf('day').add(14, "hours");
+    // Rounds down to start of the current hour
+    currentTime = currentTime.startOf("hour");
+    // Add timeTwo if/else to adjust if time is past,future, or present. 
+    if (currentTime.isAfter(timeTwo)) {
+        $(".control2").addClass("past");
+    }
+    else if (currentTime.isBefore(timeTwo)) {
+        $(".control2").addClass("future");
+    }
+    else if (currentTime.isSame(timeTwo)) {
+        $(".control2").addClass("present");
     };
 }   
 
