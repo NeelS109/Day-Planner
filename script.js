@@ -37,6 +37,11 @@ var timeTwo = dayStart.add(1, "h");
 // Populates time into html
 timeTwo = timeTwo.format("hh:mm A")
 $(".twoPM").text(timeTwo);
+// var timeThree = dayStart
+var timeThree = dayStart.add(1, "h");
+// Populates time into html
+timeThree = timeThree.format("hh:mm A")
+$(".threePM").text(timeThree);
 
 
 function plannertTimes() {
@@ -138,15 +143,21 @@ function plannertTimes() {
     else if (currentTime.isSame(timeTwo)) {
         $(".control2").addClass("present");
     };
+    // Add timeThree 3pm
+    timeThree = moment().startOf('day').add(15, "hours");
+    // Rounds down to start of the current hour
+    currentTime = currentTime.startOf("hour");
+    // Add timeThree if/else to adjust if time is past,future, or present. 
+    if (currentTime.isAfter(timeThree)) {
+        $(".control3").addClass("past");
+    }
+    else if (currentTime.isBefore(timeThree)) {
+        $(".control3").addClass("future");
+    }
+    else if (currentTime.isSame(timeThree)) {
+        $(".control3").addClass("present");
+    };
 }   
-
-
-
-
-
-
-
-
 
 
 
@@ -159,12 +170,12 @@ for (var i = 0; i < t.length; i++) {
     // form - control
     $(".control" + t[i]).val(timeHour);
 }
-// Event listener for saving to local stroage
-$(".saveBtn").click(function () {
-    event.preventDefault();
-    var formValue = $(this).siblings(".form-control").val();
-    console.log("This worked");
-    var listItem = $(this).parent().data("hour");
 
-    localStorage.setItem(listItem, formValue);
-});
+
+
+
+
+
+
+
+
