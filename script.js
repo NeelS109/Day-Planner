@@ -1,13 +1,13 @@
 moment(Date)
 $("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
-// Moment Current time 
+// Current time = moment which pulls the date
 var currentTime = moment();
 // Returns current time but rounded down to the nearest hour
 currentTime = currentTime.startOf("hour");
-// Calculates the start of day + 9hr to return the start time (9am)
+// Calculates the start of day + 9hr to return the start time of planner (9am)
 var dayStart = moment().startOf('day').add(9, "hours");
 
-// var timeNine = dayStart;
+// var timeNine = dayStart
 var timeNine = dayStart.add(0, "h");
 // Populates time into html
 timeNine = timeNine.format('hh:mm A');
@@ -60,7 +60,7 @@ $(".sixPM").text(timeSix);
 
 
 function plannertTimes() {
-    // Add timeNine 9AM
+    // timeNine = start of day + 9 hrs
     timeNine = moment().startOf('day').add(9, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
@@ -74,7 +74,7 @@ function plannertTimes() {
     else if (currentTime.isSame(timeNine)) {
         $(".control9").addClass("present");
     };       
-    // Add timeTen 10am
+    // timeTen = start of day + 10 hrs
     timeTen = moment().startOf('day').add(10, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
@@ -88,7 +88,7 @@ function plannertTimes() {
     else if (currentTime.isSame(timeTen)) {
         $(".control10").addClass("present");
     };
-    // Add timeEleven 11am
+    // timeEleven = start of day + 11 hrs
     timeEleven = moment().startOf('day').add(11, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
@@ -102,7 +102,7 @@ function plannertTimes() {
     else if (currentTime.isSame(timeEleven)) {
         $(".control11").addClass("present");
     };
-    // Add timeTweleve 12pm
+    // timeTweleve = start of day + 12 hrs
     timeTwelve = moment().startOf('day').add(12, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
@@ -116,7 +116,7 @@ function plannertTimes() {
     else if (currentTime.isSame(timeTwelve)) {
         $(".control12").addClass("present");
     };
-    // Add timeOne 1pm
+    // timeOne = start of day + 13 hrs
     timeOne = moment().startOf('day').add(13, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
@@ -130,21 +130,7 @@ function plannertTimes() {
     else if (currentTime.isSame(timeOne)) {
         $(".control1").addClass("present");
     };
-        // Add timeOne 1pm
-    timeOne = moment().startOf('day').add(13, "hours");
-    // Rounds down to start of the current hour
-    currentTime = currentTime.startOf("hour");
-    // Add timeTwelve if/else to adjust if time is past,future, or present. 
-    if (currentTime.isAfter(timeOne)) {
-        $(".control1").addClass("past");
-    }
-    else if (currentTime.isBefore(timeOne)) {
-        $(".control1").addClass("future");
-    }
-    else if (currentTime.isSame(timeOne)) {
-        $(".control1").addClass("present");
-    };
-    // Add timeTwo 2pm
+    // timeTwo = start of day + 14 hrs
     timeTwo = moment().startOf('day').add(14, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
@@ -158,7 +144,7 @@ function plannertTimes() {
     else if (currentTime.isSame(timeTwo)) {
         $(".control2").addClass("present");
     };
-    // Add timeThree 3pm
+    // timeThree = start of day + 15 hrs
     timeThree = moment().startOf('day').add(15, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
@@ -172,7 +158,7 @@ function plannertTimes() {
     else if (currentTime.isSame(timeThree)) {
         $(".control3").addClass("present");
     };
-    // Add timeFour 4pm
+    // timeFour = start of day + 16 hrs
     timeFour = moment().startOf('day').add(16, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
@@ -186,7 +172,7 @@ function plannertTimes() {
     else if (currentTime.isSame(timeFour)) {
         $(".control4").addClass("present");
     };
-    // Add timeFive 5pm
+    // timeFive = start of day + 17 hrs
     timeFive = moment().startOf('day').add(17, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
@@ -200,7 +186,7 @@ function plannertTimes() {
     else if (currentTime.isSame(timeFive)) {
         $(".control5").addClass("present");
     };
-    // Add timeSix 6pm
+    // timeSix = start of day + 17 hrs
     timeSix = moment().startOf('day').add(17, "hours");
     // Rounds down to start of the current hour
     currentTime = currentTime.startOf("hour");
