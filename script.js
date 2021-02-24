@@ -214,7 +214,7 @@ for (var i = 0; i < t.length; i++) {
 
 // Event listener for saving to local storage
 $(".saveBtn").click(function () {
-    event.preventDefault();
+    preventDefault();
     var formValue = $(this).siblings(".form-control").val();
     console.log("Success");
     var listItem = $(this).parent().data("hour");
