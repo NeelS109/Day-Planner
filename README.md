@@ -9,3 +9,6 @@ your reminder will stay there until removed and saved again.
 
 You can view the deployed planner on:
 [Deployed-Day-Planner](https://neels109.github.io/Day-Planner/)
+
+You can view the demo here:
+![Day-Planner-Demo](./Assets/05-third-party-apis-homework-demo.gif)
